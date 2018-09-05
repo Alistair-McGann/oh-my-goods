@@ -1,4 +1,4 @@
-package alistair-mcgann;
+package alistairmcgann;
 
 /**
  * Hello world!

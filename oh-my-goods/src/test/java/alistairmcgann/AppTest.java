@@ -1,4 +1,4 @@
-package alistair-mcgann;
+package alistairmcgann;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
