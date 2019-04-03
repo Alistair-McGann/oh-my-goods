@@ -1,0 +1,6 @@
+[
+{"id":1, "name":"Shoemaker", "cost":15, "points":4, "resource":"WHEAT", "requiredResources":["WHEAT","WOOD","WHEAT","WOOD","WHEAT","WOOD"], "producedResources":"SHOES", "chainResource":["LEATHER",]},
+{"id":2, "name":"Cooperage", "cost":11, "points":3, "resource":"WOOD", "requiredResources":["WHEAT","WHEAT","WHEAT","CLAY","CLAY"], "producedResources":"BARRELS", "chainResource":["TIMBER",]},
+{"id":3, "name":"Tailor's Shop", "cost":6, "points":3, "resource":"LAUNDRY", "requiredResources":["WHEAT","CLAY","CLAY","CLAY","CLAY"], "producedResources":"SHIRTS", "chainResource":["COAL","FABRIC"]},
+{"id":4, "name":"Brick Manufacture", "cost":5, "points":2, "resource":"CLAY", "requiredResources":["ORE","ORE","WOOD","WOOD"], "producedResources":"BRICKS", "chainResource":["COAL","CLAY"]},
+]
