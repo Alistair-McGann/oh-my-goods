@@ -1,11 +1,7 @@
 package alistairmcgann;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.json.simple.parser.ParseException;
 
 
 public class Table {
@@ -18,6 +14,10 @@ public class Table {
 	public Table() {
 		
 		deck = new Deck();
+		
+		for (int i=0; i<2; ++i) {
+			System.out.println(deck.draw());
+		}
 		
 		discardpile = new DiscardPile();
 
