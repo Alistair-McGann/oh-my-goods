@@ -32,6 +32,10 @@ public class Deck {
    	FileReader filereader;
    	JsonReader jsonreader;
    	
+   	public Deck(List<Card> cards) {
+   		this.cards = cards;
+   	}
+   	
 	public Deck() {
 		
         filepath = "C:\\Users\\mcga\\git\\oh-my-goods\\oh-my-goods\\src\\main\\java\\alistairmcgann\\cards.json";
