@@ -1,5 +1,7 @@
 package alistairmcgann;
 
-public class DiscardPile {
+import java.util.List;
 
+public class DiscardPile extends CardCollection {
+		
 }

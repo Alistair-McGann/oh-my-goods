@@ -16,7 +16,7 @@ public class Table {
 		deck = new Deck();
 		
 		for (int i=0; i<2; ++i) {
-			System.out.println(deck.draw());
+			System.out.println(draw());
 		}
 		
 		discardpile = new DiscardPile();
@@ -29,4 +29,45 @@ public class Table {
 		
 	}
 	
+	public Card draw() {
+		
+		try {
+			return deck.draw();
+		} catch (IllegalStateException e) {
+			System.out.println("No more cards left!");
+			
+			// Shuffle in the discard pile
+			shuffleInDiscardPile();
+			
+			return deck.draw();
+		}
+	}
+	
+	public CardCollection drawN(int numberOfCards){
+		
+		CardCollection returnedCards = new CardCollection();
+		
+		if (deck.size() + discardpile.size() < numberOfCards) {
+			throw new IllegalStateException("Have run out of cards");
+		}
+		
+		for (int i=0; i<numberOfCards; ++i) {
+			
+				returnedCards.add(draw());
+		}
+		
+		return returnedCards;
+	}
+	
+	private void shuffleInDiscardPile() {
+		deck.addAll(discardpile);
+		discardpile.clear();
+		deck.shuffle();
+		
+	}
+	
+	public void discardSingleCard(Card card) {
+		this.discardpile.add(card);
+	}
+
 }

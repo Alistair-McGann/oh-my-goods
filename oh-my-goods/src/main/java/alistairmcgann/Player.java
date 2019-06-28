@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Player {
 	
-	private List<Card> hand;
+	private CardCollection hand;
 	
 	public Player() {
 		

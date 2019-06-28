@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Hand {
 
-	private List<Card> cards;
+	private CardCollection cards;
 	
 	private Hand() {
-		cards = new ArrayList<Card>();
+		cards = new CardCollection();
 	}
 	
 }

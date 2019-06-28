@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,11 +18,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 */
-public class Deck {
+public class Deck extends CardCollection {
 	private String filepath = new String();
 	
-	private static final Type CARD_TYPE = new TypeToken<List<Card>>(){}.getType();
-	private List<Card> cards;
+	private static final Type CARD_TYPE = new TypeToken<CardCollection>(){}.getType();
 	
 /**
 	JSONParser parser = new JSONParser();
@@ -32,8 +32,9 @@ public class Deck {
    	FileReader filereader;
    	JsonReader jsonreader;
    	
-   	public Deck(List<Card> cards) {
-   		this.cards = cards;
+   	public Deck(Collection<Card> inputCards) {
+   		this.addAll(inputCards);// = inputCards;
+   		//System.arraycopy(inputCards, 0, this.cards, 0, inputCards.size());
    	}
    	
 	public Deck() {
@@ -47,8 +48,9 @@ public class Deck {
 			e1.printStackTrace();
 		}
 
-        
-    	cards = new Gson().fromJson(filereader, CARD_TYPE);
+    	CardCollection cards = new Gson().fromJson(filereader, CARD_TYPE);
+    	
+    	this.addAll(cards);
     	
     	shuffle();
 
@@ -61,26 +63,39 @@ public class Deck {
 	}
 	
 	public void shuffle() {
-		Collections.shuffle(this.cards);
+		Collections.shuffle(this);
 	}
 	
 	public Card draw() {
 		
-		if (cards.isEmpty()) {
-			throw new IllegalStateException("No cards left in deck");
+		int firstCard = size() - 1;
+		
+		if (firstCard < 0) {
+			throw new IllegalStateException("Have run out of cards");
 		}
 		
-		int firstCard = cards.size() - 1;
+		Card card = this.get(firstCard);
 		
-		Card card = cards.get(firstCard);
-		
-		cards.remove(firstCard);
+		this.remove(firstCard);
 		
 		return card;
 	}
 	
-	public int size() {
-		return this.cards.size();
-	}
-	
+//	public List<Card> drawN(int numberOfCards){
+//		
+//		List<Card> returnedCards = new ArrayList<Card>();
+//		
+//		if (this.cards.size() < numberOfCards) {
+//			throw new IllegalStateException("Will run out of cards in deck");
+//		}
+//		
+//		for (int i=0; i<numberOfCards; ++i) {
+//			
+//				returnedCards.add(draw());
+//		}
+//		
+//		return returnedCards;
+//	}
+//	
+//	
 }
