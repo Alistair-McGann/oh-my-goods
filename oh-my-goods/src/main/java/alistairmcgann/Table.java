@@ -13,20 +13,18 @@ public class Table {
 	
 	public Table() {
 		
-		deck = new Deck();
+		this(new Deck(new CardCollection()), new DiscardPile(), new ArrayList<Worker>());
 		
-		for (int i=0; i<2; ++i) {
-			System.out.println(draw());
-		}
-		
-		discardpile = new DiscardPile();
-
-		workers = new ArrayList<Worker>();
+	}
+	
+	public Table(Deck deck, DiscardPile discardPile, ArrayList<Worker> workers) {
+		this.deck = deck;
+		this.discardpile = discardPile;
+		this.workers = workers;
 		
 		for (int i=0; i<10; ++i) {
 			workers.add(new Worker());
 		}
-		
 	}
 	
 	public Card draw() {

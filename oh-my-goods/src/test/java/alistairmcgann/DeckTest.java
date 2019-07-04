@@ -36,6 +36,24 @@ public class DeckTest extends TestCase {
 		assertEquals(deck.size(), 0);
 	}
 	
+	public void test_GIVEN_deck_with_one_card_WHEN_two_cards_drawn_THEN_error() {
+		Card testCard = new Card(1);
+		
+		CardCollection cards = new CardCollection(Arrays.asList(testCard));
+		
+		Deck deck = new Deck(cards);
+		
+		// Draw card out of deck
+		deck.draw();
+		
+		try {
+			deck.draw();
+			fail();
+		} catch ( IllegalStateException e ) {
+			// Expected
+		}
+	}
+	
 //	public void test_GIVEN_deck_with_N_cards_WHEN_N_cards_drawn_THEN_all_cards_are_returned() {
 //		int numberOfCards = 10;
 //		
