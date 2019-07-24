@@ -54,23 +54,5 @@ public class DeckTest extends TestCase {
 		}
 	}
 	
-//	public void test_GIVEN_deck_with_N_cards_WHEN_N_cards_drawn_THEN_all_cards_are_returned() {
-//		int numberOfCards = 10;
-//		
-//		List<Card> testCards = new ArrayList<Card>();
-//		
-//		for (int i=0; i<numberOfCards; ++i) {
-//			testCards.add(new Card(i));
-//		}
-//		
-//		Deck deck = new Deck(new ArrayList<Card>(testCards));
-//		
-//		List<Card> returnedCards = deck.drawN(numberOfCards);
-//		
-//		System.out.println(testCards);
-//		
-//		for (int i=0; i<numberOfCards; ++i) {
-//			assertTrue(returnedCards.contains(testCards.get(i)));
-//		}
-//	}
+
 }
