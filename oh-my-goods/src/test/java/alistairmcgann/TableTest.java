@@ -1,7 +1,5 @@
 package alistairmcgann;
 
-import static org.junit.Assert.assertNotEquals;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
