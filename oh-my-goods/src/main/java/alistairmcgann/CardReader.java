@@ -34,6 +34,15 @@ public class CardReader implements Supplier<CardCollection>{
 
   	CardCollection cards = new Gson().fromJson(filereader, CARD_TYPE);
   	
+  	// Hack to increase deck size
+  	cards.addAll(cards);
+  	cards.addAll(cards);
+  	cards.addAll(cards);
+  	cards.addAll(cards);
+  	cards.addAll(cards);
+  	cards.addAll(cards);
+  	  	
+  	
 		
 		// TODO Auto-generated method stub
 		return cards;

@@ -8,6 +8,7 @@ public class Table {
 
 	private Deck deck;
 	private DiscardPile discardpile;
+	private CardCollection communalCards;
 	
 	public List<Worker> workers;
 	
@@ -21,6 +22,8 @@ public class Table {
 		this.deck = deck;
 		this.discardpile = discardPile;
 		this.workers = workers;
+		
+		this.communalCards = new CardCollection();
 		
 		for (int i=0; i<10; ++i) {
 			workers.add(new Worker());
@@ -64,8 +67,25 @@ public class Table {
 		
 	}
 	
-	public void discardSingleCard(Card card) {
+	public void discardCard(Card card) {
 		this.discardpile.add(card);
 	}
+	
+	public void discardCards(CardCollection cards) {
+		this.discardpile.addAll(cards);
+	}
 
+	public void drawDayPhase() {
+		int sunnyCards = 0 ;
+		while (sunnyCards < 2) {
+			Card card = deck.draw();
+			if (card.hasSun()) {
+				sunnyCards++;
+			}
+			
+			communalCards.add(card);
+			
+		}
+	}
+	
 }

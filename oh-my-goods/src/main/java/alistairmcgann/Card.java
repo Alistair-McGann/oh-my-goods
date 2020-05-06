@@ -25,5 +25,9 @@ public class Card {
 	public String toString() {
 		return String.format("I am a card with cost %d", this.cost);
 	}
+	
+	public boolean hasSun() {
+		return true;
+	}
 
 }
